@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_primary">#0D9488</color>
+    <color name="slate_900">#0F172A</color>
+    <color name="slate_700">#334155</color>
+    <color name="slate_500">#64748B</color>
+    <color name="slate_300">#CBD5E1</color>
+    <color name="slate_200">#E2E8F0</color>
+    <color name="slate_100">#F1F5F9</color>
+    <color name="canvas_bg">#F8FAFC</color>
+    <color name="success_green">#16A34A</color>
+    <color name="error_red">#991B1B</color>
+    <color name="warning_yellow">#FEF08A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

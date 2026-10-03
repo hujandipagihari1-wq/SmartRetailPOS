@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartRetailPOS</string>
+
+    <!-- Tugas 2: pesan Dialog PIN Supervisor -->
+    <string name="dialog_supervisor_title">Otorisasi Supervisor Diperlukan</string>
+    <string name="dialog_supervisor_message">Total transaksi melebihi limit otorisasi kasir mandiri.\n\nMasukkan PIN Supervisor untuk memproses pembayaran, atau batalkan dan alihkan pelanggan ke pembayaran manual.</string>
+    <string name="dialog_supervisor_pin">Masukkan PIN Supervisor</string>
+    <string name="dialog_supervisor_confirm">Otorisasi</string>
+    <string name="dialog_supervisor_cancel">Batalkan</string>
+    <string name="dialog_supervisor_pin_error">PIN Supervisor salah. Transaksi dibatalkan.</string>
+    <string name="dialog_supervisor_success">Otorisasi diterima. Transaksi diproses ke pembayaran manual.</string>
+
+    <!-- Tugas 1: pesan fallback ke pembayaran tunai -->
+    <string name="dialog_fallback_title">Batas Percobaan Tercapai</string>
+</resources>

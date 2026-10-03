@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Layout Terminal Kasir (Tahap 2).
+  Seluruh warna hex dari kode dosen dipertahankan apa adanya.
+  Elemen bertanda "TUGAS" adalah tambahan untuk Tugas 1 & Tugas 2.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart POS Terminal Kasir"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#0F172A" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simulasi Transaksi Pembayaran Kasir Berketahanan Tinggi"
+                android:textSize="13sp"
+                android:textColor="#64748B"
+                android:layout_marginBottom="20dp" />
+
+            <!-- ============ INPUT TRANSAKSI ============ -->
+
+            <EditText
+                android:id="@+id/etBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Pindai / Masukkan Barcode (Cth: 8991201)"
+                android:background="@android:drawable/editbox_background"
+                android:paddingHorizontal="12dp"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                android:textSize="14sp" />
+
+            <!-- TUGAS 2 (ditambahkan): input total belanja dipakai untuk
+                 memeriksa limit otorisasi kasir mandiri. -->
+            <EditText
+                android:id="@+id/etTotalBelanja"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:hint="Total Belanja (Rupiah)"
+                android:background="@android:drawable/editbox_background"
+                android:paddingHorizontal="12dp"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:textSize="14sp" />
+
+            <RadioGroup
+                android:id="@+id/rgSimulation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <RadioButton
+                    android:id="@+id/rbSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simulasi Transaksi Normal (Berhasil)"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/rbBarcodeError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simulasi Error 404 (Barcode Tidak Ditemukan)" />
+
+                <RadioButton
+                    android:id="@+id/rbNetworkTimeout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simulasi Error Jaringan (Payment Timeout)" />
+
+                <!-- TUGAS 2 (ditambahkan): skenario total belanja melampaui
+                     limit otorisasi kasir mandiri (Rp 10.000.000). -->
+                <RadioButton
+                    android:id="@+id/rbLimitExceeded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simulasi Total &gt; Limit Kasir (Otorisasi Supervisor)" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnProcessPayment"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Proses Pembayaran Transaksi"
+                android:backgroundTint="#0D9488"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp" />
+
+            <ProgressBar
+                android:id="@+id/pbPosLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:visibility="gone" />
+
+            <!-- Card Hasil Transaksi -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPosResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="#CBD5E1"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvPosStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TRANSAKSI BERHASIL"
+                        android:textStyle="bold"
+                        android:textColor="#16A34A" />
+
+                    <TextView
+                        android:id="@+id/tvPosDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Detail transaksi akan tampil di sini..."
+                        android:textSize="13sp"
+                        android:textColor="#334155"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- TUGAS 1 (ditambahkan): monitor jumlah retry agar kasir
+                         tahu sudah berapa kali percobaan koneksi gagal. -->
+                    <TextView
+                        android:id="@+id/tvRetryCounter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Percobaan koneksi: 0 dari 3"
+                        android:textSize="11sp"
+                        android:textColor="#64748B"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
