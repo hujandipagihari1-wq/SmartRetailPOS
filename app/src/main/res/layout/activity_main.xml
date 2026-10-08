@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="#F8FAFC">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,70 +12,127 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kalkulator Kasir"
-            android:textSize="22sp"
+            android:text="KASIRKU"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#0F172A" />
+            android:textColor="#1E293B"
+            android:letterSpacing="0.08" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Latihan runCatching + Timber Debugging"
-            android:textSize="13sp"
+            android:text="Hitung transaksi dengan cepat dan mudah"
+            android:textSize="14sp"
             android:textColor="#64748B"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="20dp" />
 
-        <EditText
-            android:id="@+id/etNominal"
+        <!-- Input Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nominal Harga Barang (Rupiah)"
-            android:inputType="numberDecimal"
-            android:importantForAutofill="no"
-            android:textSize="14sp" />
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#FFFFFF">
 
-        <EditText
-            android:id="@+id/etQty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Jumlah Barang"
-            android:inputType="number"
-            android:importantForAutofill="no"
-            android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DETAIL BARANG"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#2563EB"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp" />
 
-        <Button
-            android:id="@+id/btnHitung"
-            android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/etNominal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Nominal harga barang"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:textSize="14sp"
+                android:paddingHorizontal="14dp"
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8"
+                android:background="@android:drawable/editbox_background_normal" />
+
+            <EditText
+                android:id="@+id/etQty"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:hint="Jumlah barang"
+                android:inputType="number"
+                android:importantForAutofill="no"
+                android:textSize="14sp"
+                android:paddingHorizontal="14dp"
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8"
+                android:background="@android:drawable/editbox_background_normal" />
+
+            <Button
+                android:id="@+id/btnHitung"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:text="HITUNG TOTAL"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2563EB" />
+
+        </LinearLayout>
+
+        <!-- Result Section -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Hitung Total"
-            android:backgroundTint="#0D9488"
-            android:textColor="#FFFFFF" />
+            android:text="HASIL TRANSAKSI"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#64748B"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/tvHasil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="16dp"
-            android:background="#F1F5F9"
-            android:text="Tekan tombol di atas untuk memulai kalkulasi."
+            android:padding="18dp"
+            android:background="#E0E7FF"
+            android:text="Tekan tombol Hitung Total untuk memulai kalkulasi."
             android:textSize="14sp"
-            android:textColor="#0F172A" />
+            android:textColor="#1E293B"
+            android:gravity="center_vertical" />
 
-        <!-- Navigasi ke Tahap 2 -->
+        <!-- Navigation -->
         <Button
             android:id="@+id/btnOpenPos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginTop="24dp"
-            android:text="Buka Terminal Kasir (Tahap 2)"
-            android:backgroundTint="#334155"
-            android:textColor="#FFFFFF" />
+            android:text="LANJUT KE TERMINAL KASIR"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#475569" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tahap 2 • Terminal Kasir"
+            android:textSize="12sp"
+            android:textColor="#94A3B8"
+            android:gravity="center"
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
+
 </ScrollView>
